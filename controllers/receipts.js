@@ -1,7 +1,7 @@
 const Todo = require('../models/Receipt')
 
 module.exports = {
-    getTodos: async (req,res)=>{
+    getReceipts: async (req,res)=>{
         console.log(req.user)
         try{
             const todoItems = await Todo.find({userId:req.user.id})
