@@ -25,7 +25,7 @@ app.use(logger('dev'))
 // Sessions
 app.use(
     session({
-      secret: 'keyboard cat',
+      secret: 'keyboard catdog',
       resave: false,
       saveUninitialized: false,
       store: new MongoStore({ mongooseConnection: mongoose.connection }),
