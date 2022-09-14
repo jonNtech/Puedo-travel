@@ -1,28 +1,28 @@
-const Todo = require('../models/Receipt')
+const Receipt = require('../models/Receipt')
 
 module.exports = {
     getReceipts: async (req,res)=>{
         console.log(req.user)
         try{
-            const todoItems = await Todo.find({userId:req.user.id})
-            const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
-            res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
+            const receiptItems = await Receipt.find({userId:req.user.id})
+            const itemsLeft = await Receipt.countDocuments({userId:req.user.id,completed: false})
+            res.render('receipt.ejs', {receipts: receiptItems, left: itemsLeft, user: req.user})
         }catch(err){
             console.log(err)
         }
     },
     createReceipt: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
-            console.log('Todo has been added!')
-            res.redirect('/todos')
+            await Receipt.create({receipt: req.body.receiptItem, completed: false, userId: req.user.id})
+            console.log('Receipt has been added!')
+            res.redirect('/receipts')
         }catch(err){
             console.log(err)
         }
     },
     markApproved: async (req, res)=>{
         try{
-            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            await Receipt.findOneAndUpdate({_id:req.body.receiptIdFromJSFile},{
                 completed: true
             })
             console.log('Marked Complete')
@@ -33,7 +33,7 @@ module.exports = {
     },
     markDeclined: async (req, res)=>{
         try{
-            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            await Receipt.findOneAndUpdate({_id:req.body.receiptIdFromJSFile},{
                 completed: false
             })
             console.log('Marked Incomplete')
@@ -43,10 +43,10 @@ module.exports = {
         }
     },
     deleteReceipt: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
+        console.log(req.body.receiptIdFromJSFile)
         try{
-            await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
-            console.log('Deleted Todo')
+            await Receipt.findOneAndDelete({_id:req.body.receiptIdFromJSFile})
+            console.log('Deleted Receipt')
             res.json('Deleted It')
         }catch(err){
             console.log(err)

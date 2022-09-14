@@ -8,24 +8,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>Receipts</h1>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+    <% receipts.forEach( el => { %>
+            <li class='receiptItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.receipt %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2><%= user.userName %> has <%= left %> receipts approved.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+    <form action="/receipts/createReceipt" method='POST'>
+        <label>Enter in your Item and the amount: </label>
+        <input type="text" placeholder="Enter Receipt Item" name='receiptItem'>
+        <input type="number" min="0.00" max="5000.00" name="amount" step="0.01" placeholder="Cost of item in $"/>
         <input type="submit">
     </form>
 
-    <a href="/logout">Logout</a>
+    <button type="button"><a href="/logout">Logout</a></button>
 
     <script src="js/main.js"></script>
 </body>
