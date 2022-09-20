@@ -1,4 +1,5 @@
 const Receipt = require('../models/Receipt')
+const cloudinary = require("../middleware/cloudinary");
 
 module.exports = {
     getReceipts: async (req,res)=>{
@@ -13,7 +14,17 @@ module.exports = {
     },
     createReceipt: async (req, res)=>{
         try{
-            await Receipt.create({receipt: req.body.receiptItem, completed: false, userId: req.user.id})
+            // Upload image to cloudinary
+            const result = await cloudinary.uploader.upload(req.file.path);
+
+            await Receipt.create({
+                receipt: req.body.itemName,
+                approved: false,
+                image: result.secure_url,
+                cloudinaryId: result.public_id,
+                amount: req.body.amount,
+                user: req.user.id,
+                 })
             console.log('Receipt has been added!')
             res.redirect('/receipts')
         }catch(err){

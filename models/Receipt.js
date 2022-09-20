@@ -14,10 +14,22 @@ const ReceiptSchema = new mongoose.Schema({
     required: true,
     default: false,
   },
-  userId: {
+  image: {
     type: String,
-    required: true
-  }
+    require: true,
+  },
+  cloudinaryId: {
+    type: String,
+    require: true,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 })
 
 module.exports = mongoose.model('Receipt', ReceiptSchema)
