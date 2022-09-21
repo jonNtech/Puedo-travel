@@ -10,7 +10,7 @@ router.post('/createReceipt', upload.single("file"), receiptController.createRec
 
 router.put('/markApproved', receiptController.markApproved)
 
-router.put('/markDeclined', receiptController.markDeclined)
+router.put('/markNotApproved', receiptController.markNotApproved)
 
 router.delete('/deleteReceipt', receiptController.deleteReceipt)
 

@@ -19,8 +19,8 @@ body::before {
     }
 }
 .approved{
-    text-decoration: line-through;
-    color: gray;
+    font-weight: 600 ;
+    color: rgb(80, 200, 90);
 }
 .not{
     text-decoration: underline;

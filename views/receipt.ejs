@@ -14,18 +14,21 @@
   <section class="bg-dark text-light p-5 text-center text-sm-start">
     <div class="container">
       <div class="d-sm-flex align-items-center justify-content-around">
-        <ul>
-        <% receipts.forEach( el => { %>
-                <li class='receiptItem' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.receipt %></span>
-                    <span class='del'> Delete </span>
-                </li>
-        <% }) %>    
-        </ul>
-
-        <h2><%= user.userName %> has <%= left %> receipts approved.</h2>
-
-        <div class="mt-5">
+        <div>
+          <h2><%= user.userName %> has <%= left %> receipt(s) approved.</h2>
+          
+          <ul>
+          <% receipts.forEach( el => { %>
+                  <li class='receiptItems' data-id='<%=el._id%>'>
+                      <p><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.receipt %></span></p>
+                      <p> Amount: <%= el.amount %></p>
+                      <p>Approved: <%= el.approved %></p>
+                      <button type="button" class="btn btn-danger"><span class='del'> Delete </span></button>
+                  </li>
+          <% }) %>    
+          </ul>
+        </div>
+        <div >
           <h2>Add a Reciept</h2>
           <form action="/receipts/createReceipt" enctype="multipart/form-data" method="POST">
             <div class="mb-3">

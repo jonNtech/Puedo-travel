@@ -1,8 +1,7 @@
-const Receipt = require('../models/Receipt')
-const cloudinary = require("../middleware/cloudinary");
+const Hotel = require('../models/Hotel')
 
 module.exports = {
-    getReceipts: async (req,res)=>{
+    getHotels: async (req,res)=>{
         console.log(req.user)
         try{
             const receiptItems = await Receipt.find({user:req.user.id})
@@ -12,12 +11,9 @@ module.exports = {
             console.log(err)
         }
     },
-    createReceipt: async (req, res)=>{
+    createHotel: async (req, res)=>{
         try{
-            // Upload image to cloudinary
-            const result = await cloudinary.uploader.upload(req.file.path);
-
-            await Receipt.create({
+            await Hotel.create({
                 receipt: req.body.itemName,
                 approved: false,
                 image: result.secure_url,
@@ -31,36 +27,36 @@ module.exports = {
             console.log(err)
         }
     },
-    markApproved: async (req, res)=>{
+    updateCheckIn: async (req, res)=>{
         try{
-            await Receipt.findOneAndUpdate({_id:req.body.receiptIdFromJSFile},{
+            await Hotel.findOneAndUpdate({_id:req.body.receiptIdFromJSFile},{
                 completed: true
             })
-            console.log('Marked Approved')
-            res.json('Marked Approved')
+            console.log('Updated Check in')
+            res.json('Updated Check in')
         }catch(err){
             console.log(err)
         }
     },
-    markNotApproved: async (req, res)=>{
+    updateCheckOut: async (req, res)=>{
         try{
-            await Receipt.findOneAndUpdate({_id:req.body.receiptIdFromJSFile},{
+            await Hotel.findOneAndUpdate({_id:req.body.receiptIdFromJSFile},{
                 completed: false
             })
-            console.log('Marked declined')
-            res.json('Marked declined')
+            console.log('Updated Check out')
+            res.json('Updated Check out')
         }catch(err){
             console.log(err)
         }
     },
-    deleteReceipt: async (req, res)=>{
+    deleteHotel: async (req, res)=>{
         console.log(req.body.receiptIdFromJSFile)
         try{
-            await Receipt.findOneAndDelete({_id:req.body.receiptIdFromJSFile})
-            console.log('Deleted Receipt')
+            await Hotel.findOneAndDelete({_id:req.body.receiptIdFromJSFile})
+            console.log('Deleted Hotel')
             res.json('Deleted It')
         }catch(err){
             console.log(err)
         }
     }
-}   
+} 
