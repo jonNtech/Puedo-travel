@@ -1,12 +1,16 @@
 const Hotel = require('../models/Hotel')
+const moment = require('moment')
 
 module.exports = {
+    formatDate: (date, format) => {
+        return moment(date).format(format)
+    },
     getHotels: async (req,res)=>{
         console.log(req.user)
         try{
-            const receiptItems = await Receipt.find({user:req.user.id})
-            const itemsLeft = await Receipt.countDocuments({user:req.user.id,approved: false})
-            res.render('receipt.ejs', {receipts: receiptItems, left: itemsLeft, user: req.user})
+            const hotelStays = await Hotel.find({user:req.user.id})
+            
+            res.render('hotels.ejs', {hotels: hotelStays, moment:moment,  user: req.user})
         }catch(err){
             console.log(err)
         }
@@ -14,15 +18,17 @@ module.exports = {
     createHotel: async (req, res)=>{
         try{
             await Hotel.create({
-                receipt: req.body.itemName,
-                approved: false,
-                image: result.secure_url,
-                cloudinaryId: result.public_id,
-                amount: req.body.amount,
+                hotel: req.body.hotel,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                checkIn: req.body.checkIn,
+                checkOut: req.body.checkOut,
                 user: req.user.id,
                  })
-            console.log('Receipt has been added!')
-            res.redirect('/receipts')
+            console.log('Hotel Stay has been added!')
+            console.log(req.body)
+            res.redirect('/hotels')
         }catch(err){
             console.log(err)
         }

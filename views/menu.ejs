@@ -1,9 +1,31 @@
 <%- include('partials/header') -%>
 <div class="container d-flex justify-content-center">
     <div class="card mt-5 p-4">
-        <button><a href="/receipt">Log hotel stays</a></button>
-        <button><a href="/receipt">Log receipts</a></button>
-        <button><a href="/receipt">Log claim notes</a></button>
+        <div>
+            <p><strong>User Name</strong>: <%= user.userName %></p>
+            <p><strong>Email</strong>: <%= user.email %></p>
+            
+          </div>
+        <div>   
+            <p>Most recent hotel stay:</p>
+            <ul>
+                    <li class='latestHotel'>
+                        <p> Hotel details: <%= hotels[0].hotel %> - <%= hotels[0].address %> <%= hotels[0].city %>, <%= hotels[0].state %> </p>
+                        <p>Dates of stay:  Check in: <%= moment(hotels[0].checkIn).format("MMM Do YYYY")%> , check Out: <%= moment(hotels[0].checkOut).format("MMM Do YYYY") %></p>
+                    </li>   
+            </ul>
+        </div>
+        <div>
+            <p>Most recent receipt sumbitted for approval:</p>
+            <ul>
+            
+                    <li class="latestReceipt" >
+                        <p> Receipt details: <%= receipts[0].receipt %>, <%= receipts[0].amount %>, <%= receipts[0].approved %> </p>
+                    </li>
+               
+            </ul>
+        </div>
+        
     </div>
 </div>
 <%- include('partials/footer') -%>

@@ -3,27 +3,27 @@ const mongoose = require('mongoose')
 const HotelSchema = new mongoose.Schema({
   hotel: {
     type: String,
-    required: true,
+    //required: true,
   },
   address: {
-    type: Number,
-    required: true,
+    type: String,
+   // required: true,
   },
   city: {
-    type: Number,
-    required: true,
+    type: String,
+   // required: true,
   },
   state: {
-    type: Number,
-    required: true,
+    type: String,
+   // required: true,
   },
   checkIn: {
     type: Date,
-    required: true,
+   // required: true,
   },
   checkOut: {
     type: Date,
-    required: true,
+    //required: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
