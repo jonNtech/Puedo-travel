@@ -8,7 +8,7 @@ module.exports = {
     getHotels: async (req,res)=>{
         console.log(req.user)
         try{
-            const hotelStays = await Hotel.find({user:req.user.id})
+            const hotelStays = await Hotel.find({user:req.user.id}).sort({ createdAt: "desc" })
             
             res.render('hotels.ejs', {hotels: hotelStays, moment:moment,  user: req.user})
         }catch(err){

@@ -5,7 +5,7 @@ module.exports = {
     getReceipts: async (req,res)=>{
         console.log(req.user)
         try{
-            const receiptItems = await Receipt.find({user:req.user.id})
+            const receiptItems = await Receipt.find({user:req.user.id}).sort({ createdAt: "desc" })
             const itemsLeft = await Receipt.countDocuments({user:req.user.id,approved: false})
             res.render('receipt.ejs', {receipts: receiptItems, left: itemsLeft, user: req.user})
         }catch(err){

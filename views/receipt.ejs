@@ -20,9 +20,9 @@
           <ul>
           <% receipts.forEach( el => { %>
                   <li class='receiptItems' data-id='<%=el._id%>'>
-                      <p><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.receipt %></span></p>
-                      <p> Amount: <%= el.amount %></p>
-                      <p>Approved: <%= el.approved %></p>
+                      <p><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.receipt %></span>
+                       Amount: <%= el.amount %>
+                      Approved: <%= el.approved === true ? "Yes" : "No" %></p>
                       <button type="button" class="btn btn-danger"><span class='del'> Delete </span></button>
                   </li>
           <% }) %>    
