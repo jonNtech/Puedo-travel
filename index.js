@@ -12,6 +12,7 @@ const mainRoutes = require('./routes/main')
 const receiptRoutes = require('./routes/receipts')
 const menuRoutes = require('./routes/menu')
 const hotelRoutes = require('./routes/hotels')
+const commentRoutes = require("./routes/comments");
 
 require('dotenv').config({path: './config/.env'})
 
@@ -48,6 +49,7 @@ app.use('/', mainRoutes)
 app.use('/receipts', receiptRoutes)
 app.use('/menu', menuRoutes)
 app.use('/hotels', hotelRoutes)
+app.use("/comment", commentRoutes);
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

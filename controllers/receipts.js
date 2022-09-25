@@ -56,7 +56,9 @@ module.exports = {
     deleteReceipt: async (req, res)=>{
         console.log(req.body.receiptIdFromJSFile)
         try{
-            await Receipt.findOneAndDelete({_id:req.body.receiptIdFromJSFile})
+            let receipt = await Receipt.findById(req.params.id)
+            
+            await Receipt.findOneAndDelete({_id: req.params.id})
             console.log('Deleted Receipt')
             res.json('Deleted It')
         }catch(err){

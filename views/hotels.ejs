@@ -9,7 +9,7 @@
                             
                             <p> Hotel details: <%= el.hotel %> - <%= el.address %> <%= el.city %>, <%= el.state %> </p>
                             <p>Dates of stay:  Check in: <%= moment(el.checkIn).format("MMM Do YYYY")%> , check Out: <%= moment(el.checkOut).format("MMM Do YYYY") %></p>
-                            <button type="button" class="btn btn-danger"><span class='del'> Delete </span></button>
+                            <button type="button" class="btn btn-dark btn-rounded"><span class='del'> Delete </span></button>
                         </li>
                 <% }) %>    
                 </ul>
@@ -41,7 +41,7 @@
                         <label for="checkOut" class="form-label">Check Out Date: </label>
                         <input type="date" class="form-control" id="checkOut" name="checkOut">
                     </div>
-                    <button type="submit" class="btn btn-info" value="Upload">Submit</button>
+                    <button type="submit" class="btn btn-info btn-rounded" value="Upload">Submit</button>
                 </form> 
             </div>
         </div>

@@ -11,6 +11,6 @@ router.put('/updateCheckIn', hotelController.updateCheckIn)
 
 router.put('/updateCheckOut', hotelController.updateCheckOut)
 
-router.delete('/deleteHotel', hotelController.deleteHotel)
+router.delete('/deleteHotel/:id', hotelController.deleteHotel)
 
 module.exports = router

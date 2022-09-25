@@ -1,19 +1,8 @@
 <%- include('partials/header') -%>
-  <section class="bg-primary text-light p-5">
+
+  <section class="bg-dark text-light p-5 text-center text-sm-start" >
     <div class="container">
-      <div class="d-md-flex justify-content-between align-items-center">
-        <h1>Receipts</h1>
-        <div>
-          <p><strong>User Name</strong>: <%= user.userName %></p>
-          <p><strong>Email</strong>: <%= user.email %></p>
-          
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="bg-dark text-light p-5 text-center text-sm-start">
-    <div class="container">
-      <div class="d-sm-flex align-items-center justify-content-around">
+      <div class="d-sm-flex align-items-center h-100 justify-content-around">
         <div>
           <h2><%= user.userName %> has <%= left %> receipt(s) approved.</h2>
           
@@ -21,9 +10,21 @@
           <% receipts.forEach( el => { %>
                   <li class='receiptItems' data-id='<%=el._id%>'>
                       <p><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.receipt %></span>
-                       Amount: <%= el.amount %>
+                       Amount: $<%= el.amount %>
                       Approved: <%= el.approved === true ? "Yes" : "No" %></p>
-                      <button type="button" class="btn btn-danger"><span class='del'> Delete </span></button>
+
+                        <!--TODO fix receipt image not showing up  -->
+                      <img class="img-fluid" src="<%= receipts.image %>" alt="receipt image"/>
+                      <button type="button" class="btn btn-light btn-rounded"><span class='del'> Delete </span></button>
+                      <%if(receipts.user == user.id){ %>
+                        <form
+                          action="/receipts/deleteReceipt/<%= receipts[i]._id %>?_method=DELETE"
+                          method="POST"
+                          class="col-3"
+                        >
+                          <button class="btn btn-primary fa fa-trash" type="submit">Delete</button>
+                        </form>
+                      <%}%>
                   </li>
           <% }) %>    
           </ul>
@@ -43,7 +44,7 @@
               <label for="imgUpload" class="form-label">Receipt Image</label>
               <input type="file" class="form-control" id="imageUpload" name="file">
             </div>
-            <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            <button type="submit" class="btn btn-info btn-rounded" value="Upload">Submit</button>
           </form>
         </div>
       </div>

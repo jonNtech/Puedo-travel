@@ -1,5 +1,5 @@
 <%- include('partials/header') -%>
-<div class="container d-flex justify-content-center">
+<div class="container justify-content-center align-middle">
     <div class="card mt-5 p-4">
         <div>
             <p><strong>User Name</strong>: <%= user.userName %></p>
@@ -10,8 +10,8 @@
             <p>Most recent hotel stay:</p>
             <ul>
                     <li class='latestHotel'>
-                        <p> Hotel details: <%= hotels[0].hotel %> - <%= hotels[0].address %> <%= hotels[0].city %>, <%= hotels[0].state %> </p>
-                        <p>Dates of stay:  Check in: <%= moment(hotels[0].checkIn).format("MMM Do YYYY")%> , check Out: <%= moment(hotels[0].checkOut).format("MMM Do YYYY") %></p>
+                        <p> Hotel details: <%= hotels[hotels.length-1].hotel %> - <%= hotels[hotels.length-1].address %> <%= hotels[hotels.length-1].city %>, <%= hotels[hotels.length-1].state %> </p>
+                        <p>Dates of stay:  Check in: <%= moment(hotels[hotels.length-1].checkIn).format("MMM Do YYYY")%> , check Out: <%= moment(hotels[hotels.length-1].checkOut).format("MMM Do YYYY") %></p>
                     </li>   
             </ul>
         </div>
@@ -25,7 +25,34 @@
                
             </ul>
         </div>
-        
+    </div>
+    <div class="card mt-5 p-4" >
+        <h2>Add a comment</h2>
+        <form action="/comment/createComment" method="POST">
+          <div class="mb-3">
+              <label for="comment" class="form-label">Comment</label>
+              <input type="text" class="form-control" id="comment" name="comment">
+          </div>
+          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+        </form>
+    </div>
+    <div class="card mt-5 p-4">
+        <ul>
+            <% for(var i=0; i<comments.length; i++) {%>
+              <li class="col-6 justify-content-between mt-5">
+                <%= comments[i].comment%> By: <%= comments[i].createdBy%>
+                <%if(post.user == user.id){ %>
+                  <form
+                    action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
+                    method="POST"
+                    class="col-3"
+                  >
+                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                  </form>
+                  <%}%>
+              </li>
+            <% } %>
+          </ul>
     </div>
 </div>
 <%- include('partials/footer') -%>
