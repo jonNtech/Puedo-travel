@@ -1,9 +1,12 @@
 <%- include('partials/header') -%>
-<div class="container d-flex justify-content-center">
-    <div class="card mt-5 p-4">
-        <h1>Puedo Travel Systems</h1>
-        <button><a href="/login"> Login</a></button>
-        <button><a href="/signup"> Signup</a></button>
+<div class="container d-flex justify-content-center" id="loginBox">
+    <div class="card" style="width: 18rem">
+        <img  class="card-img-top" id="travelLogo" src="/images/svg/logo-no-background.svg" alt="Peudo Travel">
+        <div class="btn-group-vertical" role="group" >
+            <button type="button" class="btn btn-outline-primary"><a href="/login"> Login</a></button>
+            <!-- <button type="button" class="btn btn-outline-secondary"><a href="/signup"> Signup</a></button> -->
+            <h4>Use Jono@Jono.com / password: demo1234 to login</h4>
+        </div>
     </div>
 </div>
 <%- include('partials/footer') -%>

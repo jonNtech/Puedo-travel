@@ -12,6 +12,6 @@ router.put('/markApproved', receiptController.markApproved)
 
 router.put('/markNotApproved', receiptController.markNotApproved)
 
-router.delete('/deleteReceipt', receiptController.deleteReceipt)
+router.delete('/deleteReceipt/:id', receiptController.deleteReceipt)
 
 module.exports = router

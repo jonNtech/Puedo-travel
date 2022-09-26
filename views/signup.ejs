@@ -1,17 +1,28 @@
 
 <%- include('partials/header') -%>
-
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
-    
+    <div class="container d-flex justify-content-center">
+        <div class="card m-5 p-5" style="width: 25rem">
+            <h2>Sign up for Puedo Travel</h2>
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <!-- <form action="/signup" method="POST">
+                <input type="text" name="userName" placeholder="User Name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                <input type="submit">
+            </form> -->
+            <form action="/signup" method="POST">
+                <input type="text" name="userName" placeholder="User Name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                <div></div>
+                <input type="submit">
+            </form>
+        </div>
+    </div>    
 <%- include('partials/footer') -%>

@@ -2,6 +2,10 @@ body::before {
     display: block;
     content: '';
     height: 60px;
+} 
+body {
+    padding-top: 150px;
+    margin: 0px;
 }
   
 #map {
@@ -24,4 +28,28 @@ body::before {
 }
 .not{
     text-decoration: underline;
+}
+#headerLogo {
+    width: 15%
+}
+.navbar {
+    background-color: #131a41;
+    padding-bottom: 20px;
+    height: 150px;
+    
+    padding: 0;
+    margin: 0%;
+}
+
+.contactForm {
+    width: 90%;
+    padding-left: 25px;
+}
+
+#travelLogo {
+    height: 200px;
+    width: auto;
+}
+#loginBox {
+    padding-bottom: 30px;
 }
