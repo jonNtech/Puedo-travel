@@ -1,5 +1,6 @@
 <%- include('partials/header') -%>
 
+<<<<<<< HEAD
   <section >
     <div class="container">
       <div class="row justify-content-between">
@@ -32,6 +33,38 @@
           </div> <!--end of card-->
         </div><!--end of col-->
         <div class="col-sm-6" >
+=======
+  <section class="bg-dark text-light p-5 text-center text-sm-start" >
+    <div class="container">
+      <div class="d-sm-flex align-items-center h-100 justify-content-around">
+        <div>
+          <h2><%= user.userName %> has <%= left %> receipt(s) approved.</h2>
+          
+          <ul>
+          <% receipts.forEach( el => { %>
+                  <li class='receiptItems' data-id='<%=el._id%>'>
+                      <p><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.receipt %></span>
+                       Amount: $<%= el.amount %>
+                      Approved: <%= el.approved === true ? "Yes" : "No" %></p>
+
+                        <!--TODO fix receipt image not showing up  -->
+                      <img class="img-fluid" src="<%= receipts.image %>" alt="receipt image"/>
+                      <button type="button" class="btn btn-light btn-rounded"><span class='del'> Delete </span></button>
+                      <%if(receipts.user == user.id){ %>
+                        <form
+                          action="/receipts/deleteReceipt/<%= receipts[i]._id %>?_method=DELETE"
+                          method="POST"
+                          class="col-3"
+                        >
+                          <button class="btn btn-primary fa fa-trash" type="submit">Delete</button>
+                        </form>
+                      <%}%>
+                  </li>
+          <% }) %>    
+          </ul>
+        </div>
+        <div >
+>>>>>>> 75656f7562900a2ae4fd2e8b7cd0add10ff85575
           <h2>Add a Reciept</h2>
           <form action="/receipts/createReceipt" enctype="multipart/form-data" method="POST">
             <div class="mb-3">

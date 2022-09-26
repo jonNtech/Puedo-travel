@@ -1,6 +1,7 @@
 <%- include('partials/header') -%>
 <section>
     <div class="container">
+<<<<<<< HEAD
         <div class="row justify-content-between">
             <div class="col-sm-6">
                 <div class="container">
@@ -50,6 +51,51 @@
                 </div> <!--end of card-->
             </div> <!--end of col2-->
             </div> <!--end of row-->
+=======
+        <div class="d-md-flex justify-content-between align-items-center">
+            <div>
+                <ul>
+                <% hotels.forEach( el => { %>
+                        <li class='hotelStays' data-id='<%=el._id%>'>
+                            
+                            <p> Hotel details: <%= el.hotel %> - <%= el.address %> <%= el.city %>, <%= el.state %> </p>
+                            <p>Dates of stay:  Check in: <%= moment(el.checkIn).format("MMM Do YYYY")%> , check Out: <%= moment(el.checkOut).format("MMM Do YYYY") %></p>
+                            <button type="button" class="btn btn-dark btn-rounded"><span class='del'> Delete </span></button>
+                        </li>
+                <% }) %>    
+                </ul>
+            </div>
+            <div> 
+                <h2>Add A Hotel Stay</h2>
+                <form action="/hotels/createHotel" method="POST">
+                    <div class="mb-3">
+                        <label for="hotel" class="form-label">Hotel Name: </label>
+                        <input type="text" class="form-control" id="hotelName" name="hotel">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hotelAddress" class="form-label">Hotel Address: </label>
+                        <input type="text" class="form-control"  id="hotelAddress" name="address"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="hotelCity" class="form-label">City: </label>
+                        <input type="text" class="form-control" id="hotelCity" name="city">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hotelState" class="form-label">State: </label>
+                        <input type="text" class="form-control" id="hotelState" name="state">
+                    </div>
+                    <div class="mb-3">
+                        <label for="checkIn" class="form-label">Check In Date: </label>
+                        <input type="date" class="form-control" id="checkIn" name="checkIn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="checkOut" class="form-label">Check Out Date: </label>
+                        <input type="date" class="form-control" id="checkOut" name="checkOut">
+                    </div>
+                    <button type="submit" class="btn btn-info btn-rounded" value="Upload">Submit</button>
+                </form> 
+            </div>
+>>>>>>> 75656f7562900a2ae4fd2e8b7cd0add10ff85575
         </div>
     </div>
 </section>
