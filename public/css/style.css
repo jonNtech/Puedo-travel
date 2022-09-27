@@ -53,3 +53,9 @@ body {
 #loginBox {
     padding-bottom: 30px;
 }
+
+.loginForm {
+    margin: 0 auto;
+    width: 25%;
+    height: 600px;
+}

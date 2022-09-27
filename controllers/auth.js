@@ -2,19 +2,9 @@ const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
 
-<<<<<<< HEAD
 exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect("/menu");
-=======
- exports.getLogin = (req, res) => {
-    if (req.user) {
-      return res.redirect('/menu')
-    }
-    res.render('login', {
-      title: 'Login'
-    })
->>>>>>> 75656f7562900a2ae4fd2e8b7cd0add10ff85575
   }
   res.render("login", {
     title: "Login",
@@ -48,7 +38,6 @@ exports.postLogin = (req, res, next) => {
       if (err) {
         return next(err);
       }
-<<<<<<< HEAD
       req.flash("success", { msg: "Success! You are logged in." });
       res.redirect(req.session.returnTo || "/menu");
     });
@@ -70,14 +59,6 @@ exports.logout = (req, res) => {
 exports.getSignup = (req, res) => {
   if (req.user) {
     return res.redirect("/menu");
-=======
-      req.logIn(user, (err) => {
-        if (err) { return next(err) }
-        req.flash('success', { msg: 'Success! You are logged in.' })
-        res.redirect(req.session.returnTo || '/menu')
-      })
-    })(req, res, next)
->>>>>>> 75656f7562900a2ae4fd2e8b7cd0add10ff85575
   }
   res.render("signup", {
     title: "Create Account",
@@ -99,7 +80,6 @@ exports.postSignup = (req, res, next) => {
     req.flash("errors", validationErrors);
     return res.redirect("../signup");
   }
-<<<<<<< HEAD
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
   });
@@ -116,41 +96,6 @@ exports.postSignup = (req, res, next) => {
       if (err) {
         return next(err);
       }
-=======
-  
-  exports.getSignup = (req, res) => {
-    if (req.user) {
-      return res.redirect('/menu')
-    }
-    res.render('signup', {
-      title: 'Create Account'
-    })
-  }
-  
-  exports.postSignup = (req, res, next) => {
-    const validationErrors = []
-    if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
-    if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
-    if (req.body.password !== req.body.confirmPassword) validationErrors.push({ msg: 'Passwords do not match' })
-  
-    if (validationErrors.length) {
-      req.flash('errors', validationErrors)
-      return res.redirect('../signup')
-    }
-    req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
-  
-    const user = new User({
-      userName: req.body.userName,
-      email: req.body.email,
-      password: req.body.password
-    })
-  
-    User.findOne({$or: [
-      {email: req.body.email},
-      {userName: req.body.userName}
-    ]}, (err, existingUser) => {
-      if (err) { return next(err) }
->>>>>>> 75656f7562900a2ae4fd2e8b7cd0add10ff85575
       if (existingUser) {
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
@@ -165,17 +110,9 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-<<<<<<< HEAD
           res.redirect("/menu");
         });
       });
     }
   );
 };
-=======
-          res.redirect('/menu')
-        })
-      })
-    })
-  }
->>>>>>> 75656f7562900a2ae4fd2e8b7cd0add10ff85575
