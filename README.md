@@ -1,7 +1,7 @@
 # Puedo-travel
 
 This is practice link
-**Link to project:** puedo-travel-production.up.railway.app↗
+**Link to project:** [puedo-travel-production.up.railway.app↗](https://puedo-travel-production.up.railway.app/)
 
 ## How It's Made:
 **Tech used:** HTML, CSS, JavaScript, EJS, Mongoose, Node, Express
