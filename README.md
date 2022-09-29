@@ -1,7 +1,7 @@
 # Puedo-travel
 
-This is practice with GraphQL
-**Link to project:** https://github.com/jonNtech/Puedo-travel
+This is practice link
+**Link to project:** puedo-travel-production.up.railway.app↗
 
 ## How It's Made:
 **Tech used:** HTML, CSS, JavaScript, EJS, Mongoose, Node, Express
