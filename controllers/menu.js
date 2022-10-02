@@ -9,7 +9,7 @@ module.exports = {
         try{
             const hotelStays = await Hotel.find({user:req.user.id})
             const receiptItems = await Receipt.find({user:req.user.id})
-            const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "asc" }).lean()
+            const comments = await Comment.find({createdById:req.user.id}).sort({ createdAt: "asc" }).lean()
             const itemsLeft = await Receipt.countDocuments({user:req.user.id,approved: false})
             res.render('menu.ejs', {hotels: hotelStays, moment:moment,  user: req.user, receipts: receiptItems, left: itemsLeft, comments: comments})
         }catch(err){
@@ -18,3 +18,4 @@ module.exports = {
         
     }
 }
+// TODO create unique id's for each user to post
