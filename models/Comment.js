@@ -5,11 +5,11 @@ const CommentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  createBy: {
+  createdBy: {
     type: String,
     ref: "User"
   },
-  createById: {
+  createdById: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   },
