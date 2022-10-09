@@ -6,7 +6,10 @@
                 <div class="container">
                     <h2>Hotels Stays: </h2>
                     <ul>
-                    <% hotels.forEach( el => { %>
+                        <!--this is the google map API-->
+                        <!-- <div id="googleMap"></div> -->
+                        <!--loop for each hotel stay-->
+                        <% hotels.forEach( el => { %>
                             <li class='hotelStays' data-id='<%=el._id%>'>
                                 
                                 <p> Hotel details: <%= el.hotel %> - <%= el.address %> <%= el.city %>, <%= el.state %> </p>
