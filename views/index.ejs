@@ -1,12 +1,13 @@
 <%- include('partials/header') -%>
-<div class="container d-flex justify-content-center" id="loginBox">
-    <div class="card" style="width: 18rem">
-        <img  class="card-img-top" id="travelLogo" src="/images/svg/logo-no-background.svg" alt="Peudo Travel">
-        <div class="btn-group-vertical" role="group" >
-            <button type="button" class="btn btn-outline-primary"><a href="/login"> Login</a></button>
-            <button type="button" class="btn btn-outline-secondary"><a href="/signup"> Signup</a></button>
+<section >
+    <div class="container flex flex-col items-center justify-center mx-auto pt-28 pb-28 ">
+        <img  class="h-80 " id="travelLogo" src="/images/svg/logo-no-background.svg" alt="Peudo Travel">
+        <div class="pt-6 pb-3" >
+            <a class="p-6 mx-4 px-8 text-white bg-secondBlue rounded-full baseline hover:bg-white hover:text-secondBlue" href="/login"> Login</a>
+            <a class="p-6 mx-4 px-8 text-white bg-secondBlue rounded-full baseline hover:bg-white hover:text-secondBlue" href="/signup"> Signup</a>
             
         </div>
+
     </div>
-</div>
+</section>
 <%- include('partials/footer') -%>
