@@ -1,68 +1,90 @@
 <%- include('partials/header') -%>
+<section id="hero">
+  <div class="container flex flex-col items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0 ">
 
-<div class="container justify-content-center">
-    <div class="card mt-5 p-4">
-        <div>
-            <p><strong>User Name</strong>: <%= user.userName %></p>
-            <p><strong>Email</strong>: <%= user.email %></p>
-            <p>latest information</p>
-          </div>
-        <div>   
-            <p>Most recent hotel stay:</p>
-            <% if (hotels.length > 0) { %>
-            <ul>
-              <li class='latestHotel'>
-                <p> Hotel details: <%= hotels[hotels.length-1].hotel %> - <%= hotels[hotels.length-1].address %> <%= hotels[hotels.length-1].city %>, <%= hotels[hotels.length-1].state %> </p>
-                <p>Dates of stay:  Check in: <%= moment(hotels[hotels.length-1].checkIn).format("MMM Do YYYY")%> , check Out: <%= moment(hotels[hotels.length-1].checkOut).format("MMM Do YYYY") %></p>
-              </li>
-            </ul>
-            <% } else { %>
-              <p><strong> No data found, please add data</strong> </p>
-            <% } %>
-        </div>
-        <div>
-            <p>Most recent receipt sumbitted for approval:</p>
-            <% if (receipts.length > 0) { %>
-            <ul>
-              <li class="latestReceipt" >
-                <p> Receipt details: <%= receipts[0].receipt %>, <%= receipts[0].amount %>, <%= receipts[0].approved %> </p>
-              </li>
-            </ul>
-            <% } else { %>
-              <p> <strong> No data found, please add data</strong> </p>
-            <% } %>
-        </div>
+    <!-- user information section-->
+    <div class="flex flex-col justify-center text-center text-2xl mx-auto">
+      <p><strong class="text-white text-2xl">User Name</strong>: <%= user.userName %> </p>
+      <p><strong class="text-white text-2xl">Email</strong>: <%= user.email %></p>
     </div>
-    <!--adding comment card-->
-    <div class="card mt-5 p-4" >
-        <h2>Add a comment</h2>
-        <form action="/comment/createComment" method="POST">
-          <div class="mb-3">
-              <label for="comment" class="form-label">Comment</label>
-              <input type="text" class="form-control" id="comment" name="comment">
-          </div>
-          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-        </form>
-    </div>
-    <!-- comments card that cycles through all the comments int he colleciton-->
-    <div class="card mt-5 p-4">
-      <h2>Comments</h2>
+
+    <!-- latestion information section -->
+    <div class="flex flex-col justify-center pt-10 mx-auto">   
+      <p class="text-white text-3xl p-6">Latest Information</p>
+
+      <!-- hotel loop for most recent hotel -->
+      <p class="text-white text-xl md:text-left">Most recent hotel stay: </p>
+      <% if (hotels.length > 0) { %>
         <ul>
-            <% for(var i=0; i<comments.length; i++) {%>
-              <li class="col-6 justify-content-between mt-5">
-                <%= comments[i].comment%> 
-                <!-- <%if(comments.createdBy == user.id){ %> -->
-                  <form
-                    action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
-                    method="POST"
-                    class="col-3"
-                  >
-                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                  </form>
-                  <!-- <% } %> -->
-              </li>
-            <% } %>
-          </ul>
+          <li class='latestHotel'>
+            <p> Hotel details: <%= hotels[hotels.length-1].hotel %> - <%= hotels[hotels.length-1].address %> <%= hotels[hotels.length-1].city %>, <%= hotels[hotels.length-1].state %> </p>
+            <p>Dates of stay:  Check in: <%= moment(hotels[hotels.length-1].checkIn).format("MMM Do YYYY")%> , check Out: <%= moment(hotels[hotels.length-1].checkOut).format("MMM Do YYYY") %></p>
+          </li>
+        </ul>
+        <% } else { %>
+          <!-- if no data then state no data -->
+          <p><strong> No data found, please add data</strong> </p>
+        <% } %>
     </div>
-</div>
+    <!-- receipt information section -->
+    <div class="flex flex-col justify-center p-4">
+      <p class="text-white text-xl">Most recent receipt sumbitted for approval:</p>
+      <!-- loop for most recent receipt info -->
+      <% if (receipts.length > 0) { %>
+      <ul>
+        <li class="latestReceipt" >
+          <p> Receipt details: <%= receipts[0].receipt %>, <%= receipts[0].amount %>, <%= receipts[0].approved %> </p>
+        </li>
+      </ul>
+      <% } else { %>
+        <!-- if no data then state no data -->
+        <p> <strong> No data found, please add data</strong> </p>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section id="commentSection">
+  <!--adding comment section-->
+  <div class="flex flex-col justify-center text-center mt-6" >
+    <h2 class="text-white text-3xl p-6">Add a Comment</h2>
+    <form action="/comment/createComment" method="POST">
+      <div class="flex justify-center text-center">
+        <!-- <label for="comment" class="form-label">Comment</label> -->
+        <!-- <input type="text" class="form-control" id="comment" name="comment"> -->
+        <label class="input-group input-group-vertical w-1/2 ">
+          <span class="text-white">Comment: </span>
+          <input type="text" name="comment" placeholder=" Enter comment here" class="input input-bordered" />
+        </label>
+      </div>
+      <div class="flex justify-center p-3">
+        <button type="submit" class="btn px-4 py-2 text-white rounded-full bg-secondBlue hover:bg-white hover:text-secondBlue focus:outline-none" value="Upload">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- comments loop that cycles through all the comments in the colleciton-->
+  <div class="flex flex-col justify-center text-center p-3 ">
+    <label class="text-white text-3xl p-2">Comments</label>
+    
+    <!-- coment loop -->
+    <div class="flex flex-col justify-center  text-center p-2 w-3/4 align-items">
+      <ul class="flex flex-col p-6 md:pl-32  w-3/4">
+        <% for(var i=0; i<comments.length; i++) {%>
+        <li class=" flex flex-row  ">
+          <p class="text-2xl"><i class="fa-solid fa-circle"></i>  <%= comments[i].comment%> </p>
+          <%if(comments[i].createdById == user.id){ %>
+          <form
+            action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
+            method="POST"
+            class="p-2">
+            <button type="submit" class="text-white" ><i class="fa-solid fa-trash"></i></button>
+          </form>
+          <% } %> 
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>  
+</section>
 <%- include('partials/footer') -%>

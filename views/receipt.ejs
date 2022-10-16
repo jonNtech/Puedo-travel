@@ -1,57 +1,74 @@
 <%- include('partials/header') -%>
+<section id="hotels">
+  <div
+    class="container flex flex-col px-4 mx-auto mt-10 md:flex-row min-h-96 pt-16 pb-32">
 
-  <section >
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-sm-6">
-          <div class="container">
-            <h2><%= user.userName %> has <%= left %> receipt(s) approved.</h2>          
-            <ul>
-              <% receipts.forEach( el => { %>
-              <li class='receiptItems' data-id='<%=el._id%>'>
-                <p><span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.receipt %></span>
-                  Amount: $<%= el.amount %>
-                Approved: <%= el.approved === true ? "Yes" : "No" %></p>
+    <!-- hotels stays section left section  -->
+    <div class="flex flex-col space-y-12 md:w-1/2">
+      <h2 class="max-w-md text-4xl font-bold text-center md:text-left"><%= user.userName %> has <%= left %> receipt(s) to be approved.</h2>          
+      <ul>
+        <% receipts.forEach( el => { %>
+        <li class='flex flex-row p-2' data-id='<%=el._id%>'>
+          <i class="fa-solid fa-circle"></i>
+          <p><span class='<%= el.completed === true ? 'completed' : 'not'%> pl-2'><%= el.receipt %></span> Amount: $<%= el.amount %>
+          Approved: <%= el.approved === true ? "Yes" : "No" %>  </p>
+          <a class="pl-2" href="<%= el.image%>"><i class="fa-solid fa-receipt"></i></a>
+          <button type="button">
+            <span class="del pl-3"> <i class="fa-solid fa-trash"></i> </span>
+          </button>
+        </li>
+        <% }) %>    
+      </ul>
+    </div> 
 
-                  <!--TODO fix receipt image not showing up  -->
-                <!-- <img class="img-fluid" src="<%= receipts.image %>" alt="receipt image"/> -->
-                <a href="<%= el.image%>"><i class="bi bi-receipt"></i></a>
-                <button type="button" class="btn btn-light btn-rounded"><span class='del'> Delete </span></button>
-                <%if(receipts.user == user.id){ %>
-                  <form
-                    action="/receipts/deleteReceipt/<%= receipts[i]._id %>?_method=DELETE"
-                    method="POST"
-                    class="col-3"
-                  >
-                    <button class="btn btn-primary fa fa-trash" type="submit">Delete</button>
-                  </form>
-                <%}%>
-              </li>
-              <% }) %>    
-            </ul>
-          </div> <!--end of card-->
-        </div><!--end of col-->
-        <div class="col-sm-6" >
-          <h2>Add a Reciept</h2>
-          <!--the ENCTYPE is only for uploading immages using multer, tkae it out if normal form-->
-          <form action="/receipts/createReceipt" enctype="multipart/form-data" method="POST">
-            <div class="mb-3">
-                <label for="Item" class="form-label">Item</label>
-                <input type="text" class="form-control" id="reciept-input" name="itemName">
-            </div>
-            <div class="mb-3">
-              <label for="amount" class="form-label">Amount $</label>
-              <input class="form-control" min="0.00" max="50000.00" step="0.01" id="reciept-amount" name="amount"></input>
-            </div>
-            <div class="mb-3">
-              <label for="imgUpload" class="form-label">Receipt Image</label>
-              <input type="file" class="form-control" id="imageUpload" name="file">
-            </div>
-            <button type="submit" class="btn btn-info btn-rounded" value="Upload">Submit</button>
-          </form>
-        </div><!--end of card-->
-      </div><!--end of col-->
-    </div><!--end of row-->
-  </section>    
-    <script src="js/main.js"></script>
+    <!-- add receipt Right section -->
+    <div class="flex flex-col space-y-6 md:w-1/2">
+      <h2 class="max-w-md text-4xl font-bold text-center md:text-left">Add a Reciept</h2>
+      <!--the ENCTYPE is only for uploading immages using multer, tkae it out if normal form-->
+      <form action="/receipts/createReceipt" enctype="multipart/form-data"    method="POST">
+        <label for="itemName" class="input-group input-group-vertical">
+          <span>Item:</span>
+          <input
+            type="text"
+            placeholder="Item Name and Description"
+            class="input input-bordered"
+            id="reciept-input"
+            name="itemName"
+          />
+        </label>
+        <!-- <div class="mb-3">
+          <label for="Item" class="form-label">Item</label>
+          <input type="text" class="form-control" id="reciept-input" name="itemName">
+        </div> -->
+        <label for="amount" class="input-group input-group-vertical py-2">
+          <span>Amount $:</span>
+          <input
+            type="number"
+            placeholder="Item Amount"
+            class="input input-bordered "
+            min="0.00" 
+            max="50000.00" 
+            step="0.01"
+            id="reciept-amount"
+            name="amount"
+          />
+        </label>
+        <!-- <div class="mb-3">
+        <label for="amount" class="form-label">Amount $</label>
+          <input class="form-control" min="0.00" max="50000.00" step="0.01" id="reciept-amount" name="amount"></input>
+        </div> -->
+        <div class="mb-3">
+          <label for="imgUpload" class="form-label">Receipt Image</label>
+            <input type="file" class="form-control" id="imageUpload" name="file">
+        </div>
+        <div class="p-4">
+          <input
+            class="px-4 py-2 text-white rounded-full bg-secondBlue hover:bg-white hover:text-secondBlue focus:outline-none"
+            type="submit"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</section>    
 <%- include('partials/footer') -%>
