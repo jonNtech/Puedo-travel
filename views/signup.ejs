@@ -1,28 +1,47 @@
 
 <%- include('partials/header') -%>
-    <div class="container d-flex justify-content-center">
-        <div class="card m-5 p-5" style="width: 25rem">
-            <h2>Sign up for Puedo Travel</h2>
-            <% if (locals.messages.errors) { %>
-                <% messages.errors.forEach( el => { %>
-                    <div class="alert alert-danger"><%= el.msg %></div>
-                <% }) %>    
-            <% } %>
-            <!-- <form action="/signup" method="POST">
-                <input type="text" name="userName" placeholder="User Name">
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
-                <input type="password" name="confirmPassword" placeholder="Confirm Password">
-                <input type="submit">
-            </form> -->
+<div class="container flex flex-col items-center justify-center mx-auto pt-10 pb-28 ">
+    <img  class="h-56 " id="travelLogo" src="/images/svg/logo-no-background.svg" alt="Peudo Travel">
+    <div class="pt-6 pb-3" >
+        <h2 class="text-white text-3xl text-center">Sign up for Puedo Travel</h2>
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        
+        <div class="flex flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0 ">
             <form action="/signup" method="POST">
-                <input type="text" name="userName" placeholder="User Name">
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
-                <input type="password" name="confirmPassword" placeholder="Confirm Password">
-                <div></div>
-                <input type="submit">
+                <div class="flex flex-col mb-6 md:w-1/2 md:flex-row">
+                    <!-- <input type="text" name="userName" placeholder="User Name"> -->
+                    <label class="input-group input-group-vertical ">
+                        <span>User Name</span>
+                        <input type="text" name="userName" placeholder="User Name" class="input input-bordered" />
+                    </label>
+                    <!-- <input type="email" name="email" placeholder="Email"> -->
+                    <label class="input-group input-group-vertical ">
+                        <span>Email</span>
+                        <input type="email" name="email" placeholder="Email" class="input input-bordered" />
+                    </label>
+                </div>
+                <div class=" flex flex-col md:w-1/2 md:flex-row">
+                    <!-- <input type="password" name="password" placeholder="Password"> -->
+                    <label class="input-group input-group-vertical">
+                        <span>Password</span>
+                        <input type="password" name="password" placeholder="Password" class="input input-bordered" />
+                    </label>
+                    <!-- <input type="password" name="confirmPassword" placeholder="Confirm Password"> -->
+                    <label class="input-group input-group-vertical">
+                        <span> Confirm Password</span>
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password" class="input input-bordered" />
+                    </label>
+                </div>
+                <div class="flex justify-center pt-4">
+                    <input class="px-4 py-2 text-white rounded-full bg-secondBlue hover:bg-white hover:text-secondBlue focus:outline-none" type="submit">
+                </div>
             </form>
-        </div>
-    </div>    
+        </div>    
+    </div>
+</div>
+   
 <%- include('partials/footer') -%>
