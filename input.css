@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-#headerLogo {
-    width: 100px;
-}
-
 /* hamburger menu */
 .hamburger {
     cursor: pointer;
@@ -13,6 +9,7 @@
     height: 24px;
     transition: all 0.25s;
     position: relative;
+    color:white;
 }
 
 .hamburger-top,
@@ -26,29 +23,36 @@
     background: #000;
     transform: rotate(0);
     transition: all 0.5s;
+    background-color:white;
 }
 
 
 .hamburger-middle{
     transform: translateY(7px);
+    color:white;
 }
 
 .hamburger-bottom{
     transform: translateY(14px);
+    color:white;
 }
 .open {
     transform: rotate(90deg);
     transform: translateY(0px);
+    color:white;
 }
 
 .open .hamburger-top {
     transform: rotate(45deg) translateY(6px) translate(6px);
+    color:white;
 }
 
 .open .hamburger-middle{
     display: none;
+    color:white;
 }
 
 .open .hamburger-bottom {
     transform: rotate(-45deg) translateY(6px) translate(-6px);
+    color:white;
 }
