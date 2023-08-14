@@ -1,19 +1,19 @@
 <%- include('partials/header') -%>
 <section id="hero">
-  <div class="container flex flex-col items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0 ">
+  <div class="container flex flex-col  items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0 ">
 
     <!-- user information section-->
     <div class="flex flex-col justify-center text-center text-2xl mx-auto">
-      <p><strong class="text-white text-2xl">User Name</strong>: <%= user.userName %> </p>
-      <p><strong class="text-white text-2xl">Email</strong>: <%= user.email %></p>
+      <p><strong class=" text-2xl">User Name</strong>: <%= user.userName %> </p>
+      <p><strong class=" text-2xl">Email</strong>: <%= user.email %></p>
     </div>
 
     <!-- latestion information section -->
     <div class="flex flex-col justify-center pt-10 mx-auto">   
-      <p class="text-white text-3xl p-6">Latest Information</p>
+      <p class=" text-3xl p-6">Latest Information</p>
 
       <!-- hotel loop for most recent hotel -->
-      <p class="text-white text-xl md:text-left">Most recent hotel stay: </p>
+      <p class=" text-xl md:text-left">Most recent hotel stay: </p>
       <% if (hotels.length > 0) { %>
         <ul>
           <li class='latestHotel'>
@@ -28,7 +28,7 @@
     </div>
     <!-- receipt information section -->
     <div class="flex flex-col justify-center p-4">
-      <p class="text-white text-xl">Most recent receipt sumbitted for approval:</p>
+      <p class=" text-xl">Most recent receipt sumbitted for approval:</p>
       <!-- loop for most recent receipt info -->
       <% if (receipts.length > 0) { %>
       <ul>
@@ -46,18 +46,18 @@
 
 <section id="commentSection">
   <!--adding comment section-->
-  <div class="flex flex-col justify-center text-center mt-6" >
-    <h2 class="text-white text-3xl p-6">Add a Comment</h2>
+  <div class="flex flex-col justify-center text-center m-3" >
+    <h2 class=" text-3xl p-6">Add a Comment to your manager</h2>
     <form action="/comment/createComment" method="POST">
       <div class="flex justify-center text-center">
         <!-- <label for="comment" class="form-label">Comment</label> -->
         <!-- <input type="text" class="form-control" id="comment" name="comment"> -->
         <label class="input-group input-group-vertical w-1/2 ">
-          <span class="text-white">Comment: </span>
-          <input type="text" name="comment" placeholder=" Enter comment here" class="input input-bordered" />
+          <span class="">Comment: </span>
+          <input type="text" name="comment" placeholder=" Enter comment here" class="input mx-6 input-bordered" />
         </label>
       </div>
-      <div class="flex justify-center p-3">
+      <div class="flex justify-center m-3 p-3">
         <button type="submit" class="btn px-4 py-2 text-white rounded-full bg-secondBlue hover:bg-white hover:text-secondBlue focus:outline-none" value="Upload">Submit</button>
       </div>
     </form>
@@ -65,7 +65,7 @@
 
   <!-- comments loop that cycles through all the comments in the colleciton-->
   <div class="flex flex-col justify-center text-center p-3 ">
-    <label class="text-white text-3xl p-2">Comments</label>
+    <label class="text-3xl p-2">Comments</label>
     
     <!-- coment loop -->
     <div class="flex flex-col justify-center  text-center p-2 w-3/4 align-items">
@@ -78,7 +78,7 @@
             action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
             method="POST"
             class="p-2">
-            <button type="submit" class="text-white" ><i class="fa-solid fa-trash"></i></button>
+            <button type="submit" class="text-white hover::text-blue" ><i class="fa-solid fa-trash"></i></button>
           </form>
           <% } %> 
         </li>

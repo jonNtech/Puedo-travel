@@ -33,39 +33,67 @@
     <nav class="relative bg-veryDarkBlue mx-auto p-6">
       <!-- flex container -->
       <div class="flex items-center justify-between">
-          <div class="pt-2">
-              <img id="headerLogo" class="pl-8 h-16 pb-2" src="/images/svg/logo-no-background.svg" alt="logo">
-          </div>
-          <!-- menu items -->
-          <div class=" hidden md:flex space-x-8 font-bold text-2xl">
-              <a href="/menu" class="text-white hover:text-darkGrayishBlue">Home</a>
-              <a href="/hotels" class="text-white hover:text-darkGrayishBlue">Hotels</a>
-              <a href="/receipts" class="text-white hover:text-darkGrayishBlue">Receipts</a>
-              <!-- <a href="/support" class="text-white hover:text-darkGrayishBlue">Support</a> -->
-              
-          </div>
-          <div class="pr-8">
-          <!-- button -->
-          <a href="/logout" class="hidden md:block p-3 mx-6 pt-2 text-white bg-secondBlue rounded-full baseline hover:bg-white hover:text-secondBlue">Logout</a>
-          </div>
-
-          <!-- Hamburger icon -->
-          <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-              <span class="hamburger-top"></span>
-              <span class="hamburger-middle"></span>
-              <span class="hamburger-bottom"></span>
+        <div class="pt-2">
+          <img
+            id="headerLogo"
+            class="pl-8 h-16 pb-2"
+            src="/images/svg/logo-no-background.svg"
+            alt="logo"
+          />
+        </div>
+        <!-- menu items -->
+        <div class="hidden md:flex space-x-8 font-bold text-2xl">
+          <a
+            href="/menu"
+            class="text-white hover:bg-secondBlue hover:text-darkGray"
+            >Home</a
+          >
+          <a
+            href="/hotels"
+            class="text-white hover:bg-secondBlue hover:text-darkGray"
+            >Hotels</a
+          >
+          <button
+            href="/receipts"
+            class="text-white hover:bg-secondBlue hover:text-darkGray"
+          >
+            Receipts
           </button>
+          <!-- <a href="/support" class="text-white hover:text-darkGrayishBlue">Support</a> -->
+        </div>
+        <div class="pr-8">
+          <!-- button -->
+          <a
+            href="/logout"
+            class="hidden md:block p-3 mx-6 pt-2 text-white bg-secondBlue rounded-full baseline hover:bg-veryDarkBlue hover:text-white"
+            >Logout</a
+          >
+        </div>
+
+        <!-- Hamburger icon -->
+        <button
+          id="menu-btn"
+          class="block hamburger md:hidden focus:outline-none"
+        >
+          <span class="hamburger-top"></span>
+          <span class="hamburger-middle"></span>
+          <span class="hamburger-bottom"></span>
+        </button>
       </div>
 
       <!-- mobile menu -->
       <div class="md:hidden">
-          <div id="menu" class="absolute flex-col hidden items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
-              <a href="/menu">Home</a>
-              <a href="/hotels">Hotels</a>
-              <a href="/receipts">Receipts</a>
-              <a href="/support">Support</a>
-              <a href="/logout">Logout</a>
-          </div>
+        <div
+          id="menu"
+          class="absolute flex-col hidden items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+        >
+          <a href="/menu">Home</a>
+          <a href="/hotels">Hotels</a>
+          <a href="/receipts">Receipts</a>
+          <a href="/support">Support</a>
+          <a href="/logout">Logout</a>
+        </div>
       </div>
     </nav>
-  
+  </body>
+</html>
