@@ -1,47 +1,74 @@
-
 <%- include('partials/header') -%>
-<div class="container flex flex-col items-center justify-center mx-auto pt-10 pb-28 ">
-    <img  class="h-56 " id="travelLogo" src="/images/svg/logo-no-background.svg" alt="Peudo Travel">
-    <div class="pt-6 pb-3" >
-        <h2 class="text-white text-3xl text-center">Sign up for Puedo Travel</h2>
-        <% if (locals.messages.errors) { %>
-            <% messages.errors.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
-        
-        <div class="flex flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0 ">
-            <form action="/signup" method="POST">
-                <div class="flex flex-col mb-6 md:w-1/2 md:flex-row">
-                    <!-- <input type="text" name="userName" placeholder="User Name"> -->
-                    <label class="input-group input-group-vertical ">
-                        <span>User Name</span>
-                        <input type="text" name="userName" placeholder="User Name" class="input input-bordered" />
-                    </label>
-                    <!-- <input type="email" name="email" placeholder="Email"> -->
-                    <label class="input-group input-group-vertical ">
-                        <span>Email</span>
-                        <input type="email" name="email" placeholder="Email" class="input input-bordered" />
-                    </label>
-                </div>
-                <div class=" flex flex-col md:w-1/2 md:flex-row">
-                    <!-- <input type="password" name="password" placeholder="Password"> -->
-                    <label class="input-group input-group-vertical">
-                        <span>Password</span>
-                        <input type="password" name="password" placeholder="Password" class="input input-bordered" />
-                    </label>
-                    <!-- <input type="password" name="confirmPassword" placeholder="Confirm Password"> -->
-                    <label class="input-group input-group-vertical">
-                        <span> Confirm Password</span>
-                        <input type="password" name="confirmPassword" placeholder="Confirm Password" class="input input-bordered" />
-                    </label>
-                </div>
-                <div class="flex justify-center pt-4">
-                    <input class="px-4 py-2 text-white rounded-full bg-secondBlue hover:bg-white hover:text-secondBlue focus:outline-none" type="submit">
-                </div>
-            </form>
-        </div>    
+<div
+  class="container flex flex-col items-center justify-center mx-auto pt-10 pb-28"
+>
+  <img
+    class="h-56"
+    id="travelLogo"
+    src="/images/svg/logo-no-background.svg"
+    alt="Peudo Travel"
+  />
+  <div class="pt-6 pb-3">
+    <h2 class="text-white text-3xl text-center">Sign up for Puedo Travel</h2>
+    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %>
+
+    <div class="flex flex-row items-center mx-auto mt-10 md:space-y-0">
+      <form action="/signup" method="POST">
+        <div class="flex flex-col my-3 mx-auto md:w-1/2 md:flex-row">
+          <!-- <input type="text" name="userName" placeholder="User Name"> -->
+          <label class="input-group input-group-vertical">
+            <span class="font-bold">User Name</span>
+            <input
+              type="text"
+              name="userName"
+              placeholder="User Name"
+              class="mt-1 block w-{15px} px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+            />
+          </label>
+          <!-- <input type="email" name="email" placeholder="Email"> -->
+          <label class="input-group input-group-vertical">
+            <span class="font-bold">Email</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              class="mt-1 block w-{15px} px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+            />
+          </label>
+        </div>
+        <div class="flex flex-col my-3 mx-auto md:w-1/2 md:flex-row">
+          <!-- <input type="password" name="password" placeholder="Password"> -->
+          <label class="input-group input-group-vertical">
+            <span class="font-bold">Password</span>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="mt-1 block w-{15px} px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+            />
+          </label>
+          <!-- <input type="password" name="confirmPassword" placeholder="Confirm Password"> -->
+          <label class="input-group input-group-vertical">
+            <span class="font-bold">Confirm Password</span>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              class="mt-1 block w-{15px} px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+            />
+          </label>
+        </div>
+        <div class="flex justify-center pt-4">
+          <input
+            class="px-4 py-2 text-white rounded-full bg-secondBlue hover:bg-white hover:text-secondBlue focus:outline-none"
+            type="submit"
+          />
+        </div>
+      </form>
     </div>
+  </div>
 </div>
-   
+
 <%- include('partials/footer') -%>

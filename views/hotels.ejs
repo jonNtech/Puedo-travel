@@ -14,11 +14,11 @@
         <li class="hotelStays" data-id="<%=el._id%>">
           <p>
             <i class="fa-solid fa-circle"></i>
-            <span class="text-white">Hotel details: </span> <%= el.hotel %> -
-            <%= el.address %> <%= el.city %>, <%= el.state %>
+            <span class="font-bold">Hotel details: </span> <%= el.hotel %> - <%=
+            el.address %> <%= el.city %>, <%= el.state %>
           </p>
           <p>
-            <span class="text-white">Dates of stay: </span> Check in: <%=
+            <span class="font-bold">Dates of stay: </span> Check in: <%=
             moment(el.checkIn).format("MMM Do YYYY")%> , check Out: <%=
             moment(el.checkOut).format("MMM Do YYYY") %>
           </p>
@@ -44,7 +44,7 @@
             <input
               type="text"
               placeholder="Hotel Name"
-              class="input mx-3 input-bordered border-1"
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               id="hotelName"
               name="hotel"
             />
@@ -58,7 +58,7 @@
             <input
               type="text"
               placeholder="Hotel Address"
-              class="input m-3 border-solid border-2 enabled:hover:border-gray-400 required:border-red-500"
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               id="hotelAddress"
               name="address"
             />
@@ -72,7 +72,7 @@
             <input
               type="text"
               placeholder="Hotel City"
-              class="input m-3 input-bordered"
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               id="hotelCity"
               name="city"
             />
@@ -91,7 +91,7 @@
             <input
               type="text"
               placeholder="Hotel State"
-              class="input m-3 input-bordered"
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               id="hotelState"
               name="state"
             />
@@ -110,7 +110,7 @@
             <input
               type="date"
               placeholder="Check In Date"
-              class="input m-3 input-bordered"
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               id="checkIn"
               name="checkIn"
             />
@@ -129,7 +129,7 @@
             <input
               type="date"
               placeholder="Check Out Date"
-              class="input m-3 input-bordered"
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               id="checkOut"
               name="checkOut"
             />
@@ -145,7 +145,7 @@
           </div> -->
           <div class="p-4">
             <input
-              class="px-4 py-2 text-white rounded-full bg-secondBlue hover:bg-green focus:outline-none"
+              class="px-4 py-2 text-white rounded-full bg-secondBlue hover:text-dark focus:outline-none"
               type="submit"
             />
           </div>
